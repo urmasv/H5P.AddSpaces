@@ -1,0 +1,255 @@
+{
+  "semantics": [
+    {
+      "name": "taskDescription",
+      "type": "text",
+      "widget": "html",
+      "label": "Anweisung für Lernende",
+      "importance": "high",
+      "default": "Klicke auf das Zeichen, nach dem ein Leerzeichen oder Zeichen benötigt wird. In das entstandene Eingabefeld kannst du das Zeichen über die Tastatur eingeben oder über eine Schaltfläche oberhalb des Textes einfügen.",
+      "tags": [
+        "p",
+        "br",
+        "strong",
+        "em",
+        "u",
+        "ul",
+        "ol",
+        "li",
+        "a",
+        "span",
+        "sub",
+        "sup"
+      ]
+    },
+    {
+      "name": "mode",
+      "type": "select",
+      "label": "Übungstyp",
+      "importance": "high",
+      "default": "spacesAndPunctuation",
+      "options": [
+        {
+          "value": "spacesAndPunctuation",
+          "label": "Lernende ergänzen Leerzeichen und Zeichen"
+        },
+        {
+          "value": "spacesOnly",
+          "label": "Lernende ergänzen nur Leerzeichen"
+        },
+        {
+          "value": "punctuationOnly",
+          "label": "Lernende ergänzen nur Zeichen"
+        }
+      ]
+    },
+    {
+      "name": "removableSymbols",
+      "type": "text",
+      "label": "Liste der zu entfernenden und wiederherzustellenden Symbole",
+      "importance": "high",
+      "default": " ,.;:?!—",
+      "description": "Standard: Leerzeichen, Komma, Punkt, Doppelpunkt, Semikolon, Fragezeichen, Ausrufezeichen und Gedankenstrich. Leerzeichen werden in den entsprechenden Übungstypen auch dann entfernt und verlangt, wenn das unsichtbare Leerzeichen am Anfang der Liste beim Bearbeiten weggelassen wird. Wenn die Liste einen Gedankenstrich enthält, werden Bindestrich und Gedankenstrich bei der Prüfung als gleichwertig behandelt. Ein alleinstehender Bindestrich im Autorentext wird als Gedankenstrich behandelt. Apostroph ' und seine typografischen Varianten ’, ʼ, ′ werden bei der Prüfung als gleichwertig behandelt."
+    },
+    {
+      "name": "sentences",
+      "type": "list",
+      "label": "Sätze",
+      "importance": "high",
+      "min": 1,
+      "entity": "Satz",
+      "field": {
+        "name": "sentenceItem",
+        "type": "group",
+        "label": "Satz",
+        "fields": [
+          {
+            "name": "instruction",
+            "type": "text",
+            "widget": "html",
+            "label": "Anweisung für den Antwortbereich",
+            "importance": "medium",
+            "default": "",
+            "optional": true,
+            "description": "Leer lassen, wenn über dem Antwortbereich dieses Satzes keine eigene Anweisung angezeigt werden soll. Jeder Satz kann eine andere Anweisung haben.",
+            "tags": [
+              "p",
+              "br",
+              "strong",
+              "em",
+              "u",
+              "ul",
+              "ol",
+              "li",
+              "a",
+              "span",
+              "sub",
+              "sup"
+            ]
+          },
+          {
+            "name": "sentence",
+            "type": "text",
+            "label": "Sprachlich korrekter Satz",
+            "importance": "high",
+            "placeholder": "Gib den Satz mit Leerzeichen und Zeichen ein.",
+            "description": "Gib einen sprachlich korrekten Satz ein. Von einer Webseite kopierter Text wird in der Lernendenansicht von HTML-Entitäten bereinigt."
+          }
+        ]
+      },
+      "default": [
+        {
+          "instruction": "",
+          "sentence": "Hallo, Welt! Kannst du Leerzeichen ergänzen?"
+        }
+      ]
+    },
+    {
+      "name": "behaviour",
+      "type": "group",
+      "label": "Verhaltenseinstellungen",
+      "importance": "low",
+      "fields": [
+        {
+          "name": "enableRetry",
+          "type": "boolean",
+          "label": "Wiederholen erlauben",
+          "default": true
+        },
+        {
+          "name": "showCorrectTextAfterCheck",
+          "type": "boolean",
+          "label": "Nach der Überprüfung den richtigen Satz anzeigen",
+          "default": true
+        },
+        {
+          "name": "showPunctuationButtons",
+          "type": "boolean",
+          "label": "Zeichenschaltflächen in der Lernendenansicht anzeigen",
+          "description": "Wenn diese Option aktiviert ist, können Lernende die in der Liste der entfernten Symbole enthaltenen Zeichen auch über Schaltflächen oberhalb des Textes einfügen. Eine Schaltfläche für das Leerzeichen wird nicht angezeigt.",
+          "default": true
+        }
+      ]
+    },
+    {
+      "name": "l10n",
+      "type": "group",
+      "label": "Texte und Übersetzungen",
+      "importance": "low",
+      "common": true,
+      "fields": [
+        {
+          "name": "checkAnswer",
+          "type": "text",
+          "label": "Text der Prüfen-Schaltfläche",
+          "default": "Prüfen"
+        },
+        {
+          "name": "tryAgain",
+          "type": "text",
+          "label": "Text der Wiederholen-Schaltfläche",
+          "default": "Erneut versuchen"
+        },
+        {
+          "name": "correct",
+          "type": "text",
+          "label": "Text für richtige Antwort",
+          "default": "Richtig"
+        },
+        {
+          "name": "incorrect",
+          "type": "text",
+          "label": "Text für falsche Antwort",
+          "default": "Falsch"
+        },
+        {
+          "name": "yourResult",
+          "type": "text",
+          "label": "Ergebnistext",
+          "default": "Ergebnis: @score / @max",
+          "description": "Verfügbare Variablen: @score und @max."
+        },
+        {
+          "name": "correctFeedback",
+          "type": "text",
+          "label": "Feedback bei vollständig richtiger Antwort",
+          "default": "Alles richtig!"
+        },
+        {
+          "name": "correctText",
+          "type": "text",
+          "label": "Anzahl richtiger Antworten",
+          "default": "Richtige: @count",
+          "description": "Verfügbare Variable: @count."
+        },
+        {
+          "name": "wrongText",
+          "type": "text",
+          "label": "Anzahl falscher Antworten",
+          "default": "Falsche: @count",
+          "description": "Verfügbare Variable: @count."
+        },
+        {
+          "name": "missingText",
+          "type": "text",
+          "label": "Anzahl fehlender Antworten",
+          "default": "Fehlende: @count",
+          "description": "Verfügbare Variable: @count."
+        },
+        {
+          "name": "gapLabel",
+          "type": "text",
+          "label": "Barrierefreiheitsbeschriftung des Eingabefeldes",
+          "default": "Gib hier das fehlende Zeichen oder Leerzeichen ein"
+        },
+        {
+          "name": "emptyContent",
+          "type": "text",
+          "label": "Meldung bei leerem Inhalt",
+          "default": "Der Autor hat keine Sätze hinzugefügt."
+        },
+        {
+          "name": "sentenceLabel",
+          "type": "text",
+          "label": "Satzbeschriftung",
+          "default": "Satz @num"
+        },
+        {
+          "name": "solutionPrefix",
+          "type": "text",
+          "label": "Präfix der Lösungsbeschriftung",
+          "default": "Richtige Antwort:"
+        },
+        {
+          "name": "insertSpaceAfterLetter",
+          "type": "text",
+          "label": "Barrierefreiheitsbeschriftung für das Anklicken eines Zeichens",
+          "default": "Eingabefeld nach diesem Zeichen einfügen"
+        },
+        {
+          "name": "punctuationButtonsLabel",
+          "type": "text",
+          "label": "Beschriftung der Zeichenleiste",
+          "default": "Zeichen"
+        },
+        {
+          "name": "punctuationButtonLabel",
+          "type": "text",
+          "label": "Barrierefreiheitsbeschriftung der Zeichenschaltfläche",
+          "default": "Zeichen einfügen: @symbol",
+          "description": "Die Variable @symbol wird durch das entsprechende Zeichen ersetzt."
+        },
+        {
+          "name": "rewriteHint",
+          "type": "text",
+          "label": "Hinweis zum Korrigieren bereits eingefügter Zeichen",
+          "default": "* Korrigiere bereits eingegebene Zeichen nicht, sondern lösche sie und gib sie dann erneut ein."
+        }
+      ]
+    }
+  ],
+  "libraryStrings": {
+    "title": "Leerzeichen und Zeichen",
+    "description": "Lernende stellen fehlende Leerzeichen und Zeichen in Sätzen wieder her."
+  }
+}

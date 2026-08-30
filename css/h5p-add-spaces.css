@@ -1,0 +1,411 @@
+.h5p-add-spaces {
+  box-sizing: border-box;
+  font-family: "Open Sans", Arial, sans-serif;
+  line-height: 1.5;
+  padding: 1em;
+}
+
+.h5p-add-spaces *,
+.h5p-add-spaces *::before,
+.h5p-add-spaces *::after {
+  box-sizing: border-box;
+}
+
+.h5p-add-spaces-task {
+  margin: 0 0 1em;
+  font-size: 1.125em;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--h5p-theme-text-primary, inherit);
+}
+
+.h5p-add-spaces-task > p {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+.h5p-add-spaces-toolbar {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35em;
+  margin: 0 0 1em 0;
+}
+
+.h5p-add-spaces-toolbar-label {
+  font-weight: 600;
+  margin-right: 0.25em;
+}
+
+.h5p-add-spaces-control {
+  border: 1px solid #777;
+  border-radius: 0.35em;
+  cursor: pointer;
+  font: inherit;
+  min-height: 2.1em;
+  padding: 0.35em 0.65em;
+}
+
+.h5p-add-spaces-symbol-button.is-selected {
+  outline: 3px solid rgba(0, 0, 0, 0.25);
+}
+
+.h5p-add-spaces-sentences {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.h5p-add-spaces-sentence {
+  border: 1px solid #d0d0d0;
+  border-radius: 0.4em;
+  padding: 0.8em;
+}
+
+.h5p-add-spaces-sentence-label {
+  font-weight: 600;
+  margin-bottom: 0.4em;
+}
+
+.h5p-add-spaces-answer-instruction {
+  font-weight: 600;
+  margin-bottom: 0.4em;
+}
+
+.h5p-add-spaces-answer-instruction:empty {
+  display: none;
+}
+
+.h5p-add-spaces-line {
+  display: block;
+  font-size: 1.25em;
+  line-height: 2;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.h5p-add-spaces-char {
+  background: transparent;
+  border: 0;
+  border-radius: 0.15em;
+  color: inherit;
+  cursor: pointer;
+  display: inline;
+  font: inherit;
+  line-height: inherit;
+  margin: 0 0.075em 0 0;
+  min-height: 0;
+  min-width: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+.h5p-add-spaces-char:hover,
+.h5p-add-spaces-char:focus {
+  outline: 1px dotted currentColor;
+  outline-offset: 0.05em;
+}
+
+.h5p-add-spaces-gap-wrap {
+  display: inline;
+  white-space: pre;
+}
+
+.h5p-add-spaces-gap-wrap[hidden] {
+  display: none;
+}
+
+.h5p-add-spaces-gap {
+  background: #dff3ff;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  color: inherit;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.2;
+  margin: 0;
+  min-height: 1.2em;
+  min-width: 0.6em;
+  outline: none;
+  padding: 0.04em 0.04em;
+  text-align: left;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.h5p-add-spaces-gap[hidden] {
+  display: none;
+}
+
+.h5p-add-spaces-gap.has-value {
+  min-width: 0.65em;
+}
+
+.h5p-add-spaces-gap:focus {
+  background: #dff3ff;
+  border: 0;
+  box-shadow: none;
+  outline: none;
+}
+
+.h5p-add-spaces-gap-result {
+  display: inline;
+  white-space: pre;
+}
+
+.h5p-add-spaces-gap-result[hidden] {
+  display: none;
+}
+
+.h5p-add-spaces-result-plain {
+  background: transparent;
+  color: inherit;
+  font-weight: inherit;
+  white-space: pre;
+}
+
+.h5p-add-spaces-extra-space,
+.h5p-add-spaces-missing-space,
+.h5p-add-spaces-extra-punctuation,
+.h5p-add-spaces-missing-punctuation {
+  --h5p-add-spaces-mark-color: transparent;
+  background: linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 16.666%,
+    var(--h5p-add-spaces-mark-color) 16.666%,
+    var(--h5p-add-spaces-mark-color) 83.333%,
+    transparent 83.333%,
+    transparent 100%
+  );
+  border: 0;
+  outline: 0;
+}
+
+.h5p-add-spaces-extra-space,
+.h5p-add-spaces-missing-space {
+  display: inline-block;
+  min-width: 0.45em;
+  white-space: pre;
+}
+
+.h5p-add-spaces-extra-space,
+.h5p-add-spaces-extra-punctuation {
+  --h5p-add-spaces-mark-color: #ffb3b3;
+}
+
+.h5p-add-spaces-missing-space,
+.h5p-add-spaces-missing-punctuation {
+  --h5p-add-spaces-mark-color: #ffd59e;
+}
+
+.h5p-add-spaces-extra-punctuation,
+.h5p-add-spaces-missing-punctuation {
+  color: #000;
+  display: inline-block;
+  font-weight: 700;
+  line-height: inherit;
+  padding: 0 0.05em;
+  vertical-align: baseline;
+}
+
+.h5p-add-spaces-solution {
+  border-top: 1px solid #e1e1e1;
+  margin-top: 0.75em;
+  padding-top: 0.75em;
+}
+
+.h5p-add-spaces-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.h5p-add-spaces-controls .h5p-add-spaces-control[hidden] {
+  display: none !important;
+}
+
+.h5p-add-spaces-controls .h5p-add-spaces-control.h5p-add-spaces-check,
+.h5p-add-spaces-controls .h5p-add-spaces-control.h5p-add-spaces-retry {
+  display: inline-block;
+  border: 0;
+  border-radius: 0.25em;
+  background: #1a73d9;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 0;
+  padding: 0.5em 1.25em;
+  text-decoration: none;
+  box-shadow: inset 0 -0.125em 0 rgba(0, 0, 0, 0.25);
+}
+
+.h5p-add-spaces-controls .h5p-add-spaces-control.h5p-add-spaces-check:hover,
+.h5p-add-spaces-controls .h5p-add-spaces-control.h5p-add-spaces-check:focus,
+.h5p-add-spaces-controls .h5p-add-spaces-control.h5p-add-spaces-retry:hover,
+.h5p-add-spaces-controls .h5p-add-spaces-control.h5p-add-spaces-retry:focus {
+  background: #1356a3;
+  color: #fff;
+  outline: 2px solid #1356a3;
+  outline-offset: 2px;
+}
+
+.h5p-add-spaces-controls .h5p-add-spaces-control.h5p-add-spaces-check:active,
+.h5p-add-spaces-controls .h5p-add-spaces-control.h5p-add-spaces-retry:active {
+  box-shadow: inset 0 0.125em 0 rgba(0, 0, 0, 0.25);
+  transform: translateY(1px);
+}
+
+.h5p-add-spaces-control:disabled,
+.h5p-add-spaces-symbol-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.h5p-add-spaces-feedback {
+  border: 1px solid transparent;
+  border-radius: 0.45rem;
+  font-weight: inherit;
+  margin-top: 1rem;
+  padding: 0.75rem;
+}
+
+.h5p-add-spaces-feedback:empty {
+  display: none;
+}
+
+.h5p-add-spaces-feedback-success {
+  background: #f0fff4;
+  border-color: #7bc47f;
+}
+
+.h5p-add-spaces-feedback-failure {
+  background: #fff5f5;
+  border-color: #f2a6a6;
+}
+
+.h5p-add-spaces-result-score {
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.h5p-add-spaces-result-score:last-child {
+  margin-bottom: 0;
+}
+
+.h5p-add-spaces-result-details {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.h5p-add-spaces-result-detail,
+.h5p-correct-errors-result-detail-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #000;
+}
+
+.h5p-add-spaces-result-count,
+.h5p-correct-errors-feedback-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.8em;
+  min-height: 1.7em;
+  padding: 0.05em 0.45em;
+  border-radius: 0.25em;
+  border: 1px dashed #9cc4e4;
+  box-shadow: none;
+  color: #000;
+  line-height: 1.4;
+  text-align: center;
+  font-weight: 700;
+}
+
+.h5p-add-spaces-result-count.h5p-add-spaces-result-count-correct,
+.h5p-correct-errors-feedback-count.h5p-correct-errors-select-correct {
+  background: #f7fbff;
+  border-color: #9cc4e4;
+}
+
+.h5p-add-spaces-result-count.h5p-add-spaces-result-count-wrong,
+.h5p-correct-errors-feedback-count.h5p-correct-errors-select-wrong {
+  background: #ffb3b3;
+  border-color: #d64a4a;
+}
+
+.h5p-add-spaces-result-count.h5p-add-spaces-result-count-missing,
+.h5p-correct-errors-feedback-count.h5p-correct-errors-select-missing {
+  background: #ffd59e;
+  border-color: #d98300;
+}
+
+.h5p-add-spaces-empty {
+  padding: 1em;
+}
+
+.h5p-add-spaces-punctuation-toolbar {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35em;
+  margin: 0 0 0.8em 0;
+}
+
+.h5p-add-spaces-punctuation-label {
+  font-weight: 600;
+  margin-right: 0.25em;
+}
+
+.h5p-add-spaces-punctuation-button {
+  min-height: 1.9em;
+  min-width: 1.9em;
+  padding: 0.2em 0.55em;
+}
+
+.h5p-add-spaces-gap-wrap.is-initial .h5p-add-spaces-gap {
+  background: transparent;
+  cursor: text;
+  min-width: 1em;
+  padding-left: 0;
+  padding-right: 0;
+  width: 1em;
+}
+
+.h5p-add-spaces-gap-wrap.is-initial .h5p-add-spaces-gap:focus,
+.h5p-add-spaces-gap-wrap.is-initial .h5p-add-spaces-gap.has-value {
+  background: #dff3ff;
+  padding-left: 0.04em;
+  padding-right: 0.04em;
+}
+
+.h5p-add-spaces-rewrite-hint {
+  margin: 0.25em 0 0.75em;
+  font-style: italic;
+}
+
+
+.h5p-add-spaces-sentence.is-locked .h5p-add-spaces-char,
+.h5p-add-spaces-sentence.is-locked .h5p-add-spaces-char:disabled {
+  color: inherit;
+  cursor: default;
+  opacity: 1;
+  -webkit-text-fill-color: currentColor;
+}
+
+.h5p-add-spaces-sentence.is-locked .h5p-add-spaces-char:hover,
+.h5p-add-spaces-sentence.is-locked .h5p-add-spaces-char:focus {
+  outline: none;
+}

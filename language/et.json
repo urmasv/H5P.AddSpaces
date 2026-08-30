@@ -1,0 +1,255 @@
+{
+  "semantics": [
+    {
+      "name": "taskDescription",
+      "type": "text",
+      "widget": "html",
+      "label": "Juhis õppijale",
+      "importance": "high",
+      "default": "Klõpsa tähele, mille järele on vaja tühikut või kirjavahemärki. Tekkinud sisestusalasse saad kirjavahemärgi kirjutada klaviatuurilt või lisada teksti kohal olevast kirjavahemärginupust.",
+      "tags": [
+        "p",
+        "br",
+        "strong",
+        "em",
+        "u",
+        "ul",
+        "ol",
+        "li",
+        "a",
+        "span",
+        "sub",
+        "sup"
+      ]
+    },
+    {
+      "name": "mode",
+      "type": "select",
+      "label": "Harjutuse tüüp",
+      "importance": "high",
+      "default": "spacesAndPunctuation",
+      "options": [
+        {
+          "value": "spacesAndPunctuation",
+          "label": "Mängija lisab tühikud ja kirjavahemärgid"
+        },
+        {
+          "value": "spacesOnly",
+          "label": "Mängija lisab ainult tühikud"
+        },
+        {
+          "value": "punctuationOnly",
+          "label": "Mängija lisab ainult kirjavahemärgid"
+        }
+      ]
+    },
+    {
+      "name": "removableSymbols",
+      "type": "text",
+      "label": "Eemaldatavate ja taastamist nõudvate sümbolite loend",
+      "importance": "high",
+      "default": " ,.;:?!—",
+      "description": "Vaikimisi: tühik, koma, punkt, koolon, semikoolon, küsimärk, hüümärk ja mõttekriips. Tühikuid eemaldatakse ja nõutakse asjakohastes harjutusetüüpides ka siis, kui loendi alguses olev nähtamatu tühik jääb autori muutmisel sisestamata. Kui loendis on mõttekriips, võrdsustatakse vastamisel mõtte- ja sidekriips. Kui autor kasutab tekstis eraldi seisvat sidekriipsu, käsitletakse seda mõttekriipsuna. Apostroof ' ja selle tüpograafilised variandid ’, ʼ, ′ loetakse kontrollimisel samaväärseks."
+    },
+    {
+      "name": "sentences",
+      "type": "list",
+      "label": "Laused",
+      "importance": "high",
+      "min": 1,
+      "entity": "lause",
+      "field": {
+        "name": "sentenceItem",
+        "type": "group",
+        "label": "Lause",
+        "fields": [
+          {
+            "name": "instruction",
+            "type": "text",
+            "widget": "html",
+            "label": "Vastusekasti tööjuhis",
+            "importance": "medium",
+            "default": "",
+            "optional": true,
+            "description": "Jäta tühjaks, kui selle lause vastusekasti kohale ei pea ilmuma eraldi tööjuhist. Igal lausel võib olla erinev tööjuhis.",
+            "tags": [
+              "p",
+              "br",
+              "strong",
+              "em",
+              "u",
+              "ul",
+              "ol",
+              "li",
+              "a",
+              "span",
+              "sub",
+              "sup"
+            ]
+          },
+          {
+            "name": "sentence",
+            "type": "text",
+            "label": "Keeleliselt korrektne lause",
+            "importance": "high",
+            "placeholder": "Sisesta lause koos tühikute ja kirjavahemärkidega.",
+            "description": "Sisesta üks keeleliselt korrektne lause. Veebilehelt kopeeritud tekst puhastatakse mängija vaates HTML-üksustest."
+          }
+        ]
+      },
+      "default": [
+        {
+          "instruction": "",
+          "sentence": "Tere, maailm! Kas oskad lisada tühikuid?"
+        }
+      ]
+    },
+    {
+      "name": "behaviour",
+      "type": "group",
+      "label": "Käitumisseaded",
+      "importance": "low",
+      "fields": [
+        {
+          "name": "enableRetry",
+          "type": "boolean",
+          "label": "Luba uuesti proovimine",
+          "default": true
+        },
+        {
+          "name": "showCorrectTextAfterCheck",
+          "type": "boolean",
+          "label": "Kuva pärast kontrollimist õige lause",
+          "default": true
+        },
+        {
+          "name": "showPunctuationButtons",
+          "type": "boolean",
+          "label": "Kuva kirjavahemärkide nupud mängija vaates",
+          "description": "Kui see on sisse lülitatud, saab mängija lisada eemaldatavate sümbolite loendis olevaid kirjavahemärke ka teksti kohal olevatest nuppudest. Tühikunuppu ei kuvata.",
+          "default": true
+        }
+      ]
+    },
+    {
+      "name": "l10n",
+      "type": "group",
+      "label": "Tekstid ja tõlked",
+      "importance": "low",
+      "common": true,
+      "fields": [
+        {
+          "name": "checkAnswer",
+          "type": "text",
+          "label": "Kontrollimise nupu tekst",
+          "default": "Kontrolli"
+        },
+        {
+          "name": "tryAgain",
+          "type": "text",
+          "label": "Uuesti proovimise nupu tekst",
+          "default": "Proovi uuesti"
+        },
+        {
+          "name": "correct",
+          "type": "text",
+          "label": "Õige vastuse tekst",
+          "default": "Õige"
+        },
+        {
+          "name": "incorrect",
+          "type": "text",
+          "label": "Vale vastuse tekst",
+          "default": "Vale"
+        },
+        {
+          "name": "yourResult",
+          "type": "text",
+          "label": "Tulemuse tekst",
+          "default": "Tulemus: @score / @max",
+          "description": "Kasutatavad muutujad: @score ja @max."
+        },
+        {
+          "name": "correctFeedback",
+          "type": "text",
+          "label": "Tagasiside täiesti õige vastuse korral",
+          "default": "Kõik õige!"
+        },
+        {
+          "name": "correctText",
+          "type": "text",
+          "label": "Õigete arv",
+          "default": "Õigeid: @count",
+          "description": "Kasutatav muutuja: @count."
+        },
+        {
+          "name": "wrongText",
+          "type": "text",
+          "label": "Valede arv",
+          "default": "Valesid: @count",
+          "description": "Kasutatav muutuja: @count."
+        },
+        {
+          "name": "missingText",
+          "type": "text",
+          "label": "Puuduvate arv",
+          "default": "Puuduvaid: @count",
+          "description": "Kasutatav muutuja: @count."
+        },
+        {
+          "name": "gapLabel",
+          "type": "text",
+          "label": "Sisestuskoha ligipääsetavuse silt",
+          "default": "Kirjuta siia puuduv kirjavahemärk või tühik"
+        },
+        {
+          "name": "emptyContent",
+          "type": "text",
+          "label": "Tühja sisu teade",
+          "default": "Autor ei ole lisanud ühtegi lauset."
+        },
+        {
+          "name": "sentenceLabel",
+          "type": "text",
+          "label": "Lause silt",
+          "default": "Lause @num"
+        },
+        {
+          "name": "solutionPrefix",
+          "type": "text",
+          "label": "Lahenduse sildi algus",
+          "default": "Õige vastus:"
+        },
+        {
+          "name": "insertSpaceAfterLetter",
+          "type": "text",
+          "label": "Tähele klõpsamise ligipääsetavuse silt",
+          "default": "Lisa sisestuskoht selle märgi järele"
+        },
+        {
+          "name": "punctuationButtonsLabel",
+          "type": "text",
+          "label": "Kirjamärginuppude riba silt",
+          "default": "Kirjavahemärgid"
+        },
+        {
+          "name": "punctuationButtonLabel",
+          "type": "text",
+          "label": "Kirjamärginupu ligipääsetavuse silt",
+          "default": "Lisa kirjavahemärk: @symbol",
+          "description": "Muutuja @symbol asendatakse vastava kirjavahemärgiga."
+        },
+        {
+          "name": "rewriteHint",
+          "type": "text",
+          "label": "Juba sisestatud märkide parandamise juhis",
+          "default": "* Juba sisestatud märke ära paranda, vaid kustuta nad ära ja kirjuta siis uuesti."
+        }
+      ]
+    }
+  ],
+  "libraryStrings": {
+    "title": "Tühikud ja kirjamärgid",
+    "description": "Õppijad taastavad lausetes puuduvad tühikud ja kirjavahemärgid."
+  }
+}

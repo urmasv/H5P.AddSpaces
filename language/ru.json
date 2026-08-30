@@ -1,0 +1,255 @@
+{
+  "semantics": [
+    {
+      "name": "taskDescription",
+      "type": "text",
+      "widget": "html",
+      "label": "Инструкция для учащегося",
+      "importance": "high",
+      "default": "Нажмите на знак, после которого нужен пробел или знак. В появившееся поле ввода можно ввести знак с клавиатуры или добавить его кнопкой над текстом.",
+      "tags": [
+        "p",
+        "br",
+        "strong",
+        "em",
+        "u",
+        "ul",
+        "ol",
+        "li",
+        "a",
+        "span",
+        "sub",
+        "sup"
+      ]
+    },
+    {
+      "name": "mode",
+      "type": "select",
+      "label": "Тип упражнения",
+      "importance": "high",
+      "default": "spacesAndPunctuation",
+      "options": [
+        {
+          "value": "spacesAndPunctuation",
+          "label": "Учащийся добавляет пробелы и знаки"
+        },
+        {
+          "value": "spacesOnly",
+          "label": "Учащийся добавляет только пробелы"
+        },
+        {
+          "value": "punctuationOnly",
+          "label": "Учащийся добавляет только знаки"
+        }
+      ]
+    },
+    {
+      "name": "removableSymbols",
+      "type": "text",
+      "label": "Список удаляемых и восстанавливаемых символов",
+      "importance": "high",
+      "default": " ,.;:?!—",
+      "description": "По умолчанию: пробел, запятая, точка, двоеточие, точка с запятой, вопросительный знак, восклицательный знак и тире. В соответствующих типах упражнения пробелы удаляются и требуются даже тогда, когда невидимый начальный пробел был пропущен при редактировании списка. Если в списке есть тире, дефис и тире при проверке считаются равнозначными. Отдельно стоящий дефис в тексте автора рассматривается как тире. Апостроф ' и его типографские варианты ’, ʼ, ′ при проверке считаются равнозначными."
+    },
+    {
+      "name": "sentences",
+      "type": "list",
+      "label": "Предложения",
+      "importance": "high",
+      "min": 1,
+      "entity": "предложение",
+      "field": {
+        "name": "sentenceItem",
+        "type": "group",
+        "label": "Предложение",
+        "fields": [
+          {
+            "name": "instruction",
+            "type": "text",
+            "widget": "html",
+            "label": "Инструкция для поля ответа",
+            "importance": "medium",
+            "default": "",
+            "optional": true,
+            "description": "Оставьте пустым, если над полем ответа этого предложения не нужно показывать отдельную инструкцию. Для каждого предложения можно задать свою инструкцию.",
+            "tags": [
+              "p",
+              "br",
+              "strong",
+              "em",
+              "u",
+              "ul",
+              "ol",
+              "li",
+              "a",
+              "span",
+              "sub",
+              "sup"
+            ]
+          },
+          {
+            "name": "sentence",
+            "type": "text",
+            "label": "Языково корректное предложение",
+            "importance": "high",
+            "placeholder": "Введите предложение с пробелами и знаками.",
+            "description": "Введите одно языково корректное предложение. Текст, скопированный с веб-страницы, в режиме учащегося очищается от HTML-сущностей."
+          }
+        ]
+      },
+      "default": [
+        {
+          "instruction": "",
+          "sentence": "Привет, мир! Можешь добавить пробелы?"
+        }
+      ]
+    },
+    {
+      "name": "behaviour",
+      "type": "group",
+      "label": "Настройки поведения",
+      "importance": "low",
+      "fields": [
+        {
+          "name": "enableRetry",
+          "type": "boolean",
+          "label": "Разрешить повторную попытку",
+          "default": true
+        },
+        {
+          "name": "showCorrectTextAfterCheck",
+          "type": "boolean",
+          "label": "Показывать правильное предложение после проверки",
+          "default": true
+        },
+        {
+          "name": "showPunctuationButtons",
+          "type": "boolean",
+          "label": "Показывать кнопки знаков в режиме учащегося",
+          "description": "Если включено, учащийся может добавлять знаки из списка удаляемых символов также кнопками над текстом. Кнопка пробела не показывается.",
+          "default": true
+        }
+      ]
+    },
+    {
+      "name": "l10n",
+      "type": "group",
+      "label": "Тексты и переводы",
+      "importance": "low",
+      "common": true,
+      "fields": [
+        {
+          "name": "checkAnswer",
+          "type": "text",
+          "label": "Текст кнопки проверки",
+          "default": "Проверить"
+        },
+        {
+          "name": "tryAgain",
+          "type": "text",
+          "label": "Текст кнопки повторной попытки",
+          "default": "Попробовать ещё раз"
+        },
+        {
+          "name": "correct",
+          "type": "text",
+          "label": "Текст правильного ответа",
+          "default": "Правильно"
+        },
+        {
+          "name": "incorrect",
+          "type": "text",
+          "label": "Текст неправильного ответа",
+          "default": "Неправильно"
+        },
+        {
+          "name": "yourResult",
+          "type": "text",
+          "label": "Текст результата",
+          "default": "Результат: @score / @max",
+          "description": "Доступные переменные: @score и @max."
+        },
+        {
+          "name": "correctFeedback",
+          "type": "text",
+          "label": "Сообщение при полностью правильном ответе",
+          "default": "Всё верно!"
+        },
+        {
+          "name": "correctText",
+          "type": "text",
+          "label": "Количество правильных ответов",
+          "default": "Правильных: @count",
+          "description": "Доступная переменная: @count."
+        },
+        {
+          "name": "wrongText",
+          "type": "text",
+          "label": "Количество неправильных ответов",
+          "default": "Неправильных: @count",
+          "description": "Доступная переменная: @count."
+        },
+        {
+          "name": "missingText",
+          "type": "text",
+          "label": "Количество пропущенных ответов",
+          "default": "Пропущенных: @count",
+          "description": "Доступная переменная: @count."
+        },
+        {
+          "name": "gapLabel",
+          "type": "text",
+          "label": "Метка доступности поля ввода",
+          "default": "Введите сюда недостающий знак или пробел"
+        },
+        {
+          "name": "emptyContent",
+          "type": "text",
+          "label": "Сообщение при отсутствии содержания",
+          "default": "Автор не добавил ни одного предложения."
+        },
+        {
+          "name": "sentenceLabel",
+          "type": "text",
+          "label": "Метка предложения",
+          "default": "Предложение @num"
+        },
+        {
+          "name": "solutionPrefix",
+          "type": "text",
+          "label": "Начало подписи решения",
+          "default": "Правильный ответ:"
+        },
+        {
+          "name": "insertSpaceAfterLetter",
+          "type": "text",
+          "label": "Метка доступности при нажатии на знак",
+          "default": "Добавить поле ввода после этого знака"
+        },
+        {
+          "name": "punctuationButtonsLabel",
+          "type": "text",
+          "label": "Метка панели кнопок знаков",
+          "default": "Знаки"
+        },
+        {
+          "name": "punctuationButtonLabel",
+          "type": "text",
+          "label": "Метка доступности кнопки знака",
+          "default": "Добавить знак: @symbol",
+          "description": "Переменная @symbol заменяется соответствующим знаком."
+        },
+        {
+          "name": "rewriteHint",
+          "type": "text",
+          "label": "Подсказка об исправлении уже введённых знаков",
+          "default": "* Не исправляйте уже введённые знаки; удалите их и затем введите заново."
+        }
+      ]
+    }
+  ],
+  "libraryStrings": {
+    "title": "Пробелы и знаки",
+    "description": "Учащиеся восстанавливают в предложениях недостающие пробелы и знаки."
+  }
+}

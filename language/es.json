@@ -1,0 +1,255 @@
+{
+  "semantics": [
+    {
+      "name": "taskDescription",
+      "type": "text",
+      "widget": "html",
+      "label": "Instrucciones para el alumnado",
+      "importance": "high",
+      "default": "Haz clic en el carácter después del cual se necesita un espacio o un signo. En el campo de entrada creado puedes escribir el signo con el teclado o añadirlo con un botón situado encima del texto.",
+      "tags": [
+        "p",
+        "br",
+        "strong",
+        "em",
+        "u",
+        "ul",
+        "ol",
+        "li",
+        "a",
+        "span",
+        "sub",
+        "sup"
+      ]
+    },
+    {
+      "name": "mode",
+      "type": "select",
+      "label": "Tipo de ejercicio",
+      "importance": "high",
+      "default": "spacesAndPunctuation",
+      "options": [
+        {
+          "value": "spacesAndPunctuation",
+          "label": "El alumno añade espacios y signos"
+        },
+        {
+          "value": "spacesOnly",
+          "label": "El alumno añade solo espacios"
+        },
+        {
+          "value": "punctuationOnly",
+          "label": "El alumno añade solo signos"
+        }
+      ]
+    },
+    {
+      "name": "removableSymbols",
+      "type": "text",
+      "label": "Lista de símbolos que se eliminan y deben restaurarse",
+      "importance": "high",
+      "default": " ,.;:?!—",
+      "description": "Predeterminado: espacio, coma, punto, dos puntos, punto y coma, signo de interrogación, signo de exclamación y raya. En los tipos de ejercicio correspondientes, los espacios se eliminan y se exigen aunque se omita al editar el espacio invisible al principio de la lista. Si la lista contiene una raya, el guion y la raya se consideran equivalentes en la comprobación. Un guion aislado en el texto del autor se trata como una raya. El apóstrofo ' y sus variantes tipográficas ’, ʼ, ′ se consideran equivalentes al comprobar."
+    },
+    {
+      "name": "sentences",
+      "type": "list",
+      "label": "Oraciones",
+      "importance": "high",
+      "min": 1,
+      "entity": "oración",
+      "field": {
+        "name": "sentenceItem",
+        "type": "group",
+        "label": "Oración",
+        "fields": [
+          {
+            "name": "instruction",
+            "type": "text",
+            "widget": "html",
+            "label": "Instrucción del área de respuesta",
+            "importance": "medium",
+            "default": "",
+            "optional": true,
+            "description": "Déjalo vacío si no debe mostrarse una instrucción separada encima del área de respuesta de esta oración. Cada oración puede tener una instrucción diferente.",
+            "tags": [
+              "p",
+              "br",
+              "strong",
+              "em",
+              "u",
+              "ul",
+              "ol",
+              "li",
+              "a",
+              "span",
+              "sub",
+              "sup"
+            ]
+          },
+          {
+            "name": "sentence",
+            "type": "text",
+            "label": "Oración lingüísticamente correcta",
+            "importance": "high",
+            "placeholder": "Introduce la oración con espacios y signos.",
+            "description": "Introduce una oración lingüísticamente correcta. En la vista del alumno se limpian las entidades HTML del texto copiado de una página web."
+          }
+        ]
+      },
+      "default": [
+        {
+          "instruction": "",
+          "sentence": "¡Hola, mundo! ¿Puedes añadir espacios?"
+        }
+      ]
+    },
+    {
+      "name": "behaviour",
+      "type": "group",
+      "label": "Ajustes de comportamiento",
+      "importance": "low",
+      "fields": [
+        {
+          "name": "enableRetry",
+          "type": "boolean",
+          "label": "Permitir volver a intentar",
+          "default": true
+        },
+        {
+          "name": "showCorrectTextAfterCheck",
+          "type": "boolean",
+          "label": "Mostrar la oración correcta después de comprobar",
+          "default": true
+        },
+        {
+          "name": "showPunctuationButtons",
+          "type": "boolean",
+          "label": "Mostrar botones de signos en la vista del alumno",
+          "description": "Si está activado, el alumno también puede insertar los signos de la lista de símbolos eliminados mediante botones situados encima del texto. No se muestra un botón para el espacio.",
+          "default": true
+        }
+      ]
+    },
+    {
+      "name": "l10n",
+      "type": "group",
+      "label": "Textos y traducciones",
+      "importance": "low",
+      "common": true,
+      "fields": [
+        {
+          "name": "checkAnswer",
+          "type": "text",
+          "label": "Texto del botón de comprobación",
+          "default": "Comprobar"
+        },
+        {
+          "name": "tryAgain",
+          "type": "text",
+          "label": "Texto del botón de nuevo intento",
+          "default": "Intentar de nuevo"
+        },
+        {
+          "name": "correct",
+          "type": "text",
+          "label": "Texto de respuesta correcta",
+          "default": "Correcto"
+        },
+        {
+          "name": "incorrect",
+          "type": "text",
+          "label": "Texto de respuesta incorrecta",
+          "default": "Incorrecto"
+        },
+        {
+          "name": "yourResult",
+          "type": "text",
+          "label": "Texto del resultado",
+          "default": "Resultado: @score / @max",
+          "description": "Variables disponibles: @score y @max."
+        },
+        {
+          "name": "correctFeedback",
+          "type": "text",
+          "label": "Retroalimentación para una respuesta completamente correcta",
+          "default": "¡Todo correcto!"
+        },
+        {
+          "name": "correctText",
+          "type": "text",
+          "label": "Número de respuestas correctas",
+          "default": "Correctas: @count",
+          "description": "Variable disponible: @count."
+        },
+        {
+          "name": "wrongText",
+          "type": "text",
+          "label": "Número de respuestas incorrectas",
+          "default": "Incorrectas: @count",
+          "description": "Variable disponible: @count."
+        },
+        {
+          "name": "missingText",
+          "type": "text",
+          "label": "Número de respuestas faltantes",
+          "default": "Faltantes: @count",
+          "description": "Variable disponible: @count."
+        },
+        {
+          "name": "gapLabel",
+          "type": "text",
+          "label": "Etiqueta de accesibilidad del campo de entrada",
+          "default": "Escribe aquí el signo o el espacio que falta"
+        },
+        {
+          "name": "emptyContent",
+          "type": "text",
+          "label": "Mensaje de contenido vacío",
+          "default": "El autor no ha añadido ninguna oración."
+        },
+        {
+          "name": "sentenceLabel",
+          "type": "text",
+          "label": "Etiqueta de la oración",
+          "default": "Oración @num"
+        },
+        {
+          "name": "solutionPrefix",
+          "type": "text",
+          "label": "Prefijo de la etiqueta de solución",
+          "default": "Respuesta correcta:"
+        },
+        {
+          "name": "insertSpaceAfterLetter",
+          "type": "text",
+          "label": "Etiqueta de accesibilidad al hacer clic en un carácter",
+          "default": "Añadir un campo de entrada después de este carácter"
+        },
+        {
+          "name": "punctuationButtonsLabel",
+          "type": "text",
+          "label": "Etiqueta de la barra de botones de signos",
+          "default": "Signos"
+        },
+        {
+          "name": "punctuationButtonLabel",
+          "type": "text",
+          "label": "Etiqueta de accesibilidad del botón de signo",
+          "default": "Insertar signo: @symbol",
+          "description": "La variable @symbol se sustituye por el signo correspondiente."
+        },
+        {
+          "name": "rewriteHint",
+          "type": "text",
+          "label": "Indicación sobre la corrección de signos ya insertados",
+          "default": "* No corrijas los signos ya insertados; bórralos y escríbelos de nuevo."
+        }
+      ]
+    }
+  ],
+  "libraryStrings": {
+    "title": "Espacios y signos",
+    "description": "El alumnado restaura espacios y signos que faltan en las oraciones."
+  }
+}

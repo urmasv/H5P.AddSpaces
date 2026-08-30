@@ -1,0 +1,28 @@
+{
+  "title": "Spaces and Marks",
+  "machineName": "H5P.AddSpaces",
+  "majorVersion": 1,
+  "minorVersion": 0,
+  "patchVersion": 50,
+  "runnable": 1,
+  "author": "UrmasV",
+  "license": "MIT",
+  "description": "Learners restore missing spaces and marks in sentences.",
+  "preloadedJs": [
+    {
+      "path": "js/h5p-add-spaces.js"
+    }
+  ],
+  "preloadedCss": [
+    {
+      "path": "css/h5p-add-spaces.css"
+    }
+  ],
+  "coreApi": {
+    "majorVersion": 1,
+    "minorVersion": 24
+  },
+  "embedTypes": [
+    "iframe"
+  ]
+}
